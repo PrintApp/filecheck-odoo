@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- noupdate: merchants edit this template; module updates must not undo it. -->
+    <data noupdate="1">
+        <record id="mail_template_upload_artwork" model="mail.template">
+            <field name="name">Filecheck: Upload your artwork</field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="subject">Upload your artwork for order {{ object.name }}</field>
+            <field name="email_from">{{ (object.user_id.email_formatted or object.company_id.email_formatted or user.email_formatted) }}</field>
+            <field name="partner_to">{{ object.partner_id.id }}</field>
+            <field name="lang">{{ object.partner_id.lang }}</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="description">Sent once when a confirmed order has items waiting for the customer's print file</field>
+            <field name="body_html" type="html">
+<div style="margin: 0px; padding: 0px;">
+    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+        Hello <t t-out="object.partner_id.name or ''">Customer</t>,
+        <br/><br/>
+        Thank you for your order <strong t-out="object.name or ''">S00001</strong>.
+        We need your artwork for some items before we can print them.
+        Upload your files any time using the button below, and we will check them before we print.
+        <br/><br/>
+    </p>
+    <div style="margin: 16px 0px 16px 0px;">
+        <a t-att-href="object.filecheck_upload_url"
+           style="background-color: #875A7B; padding: 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size: 13px;">
+            Upload artwork
+        </a>
+    </div>
+    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+        The link is personal to your order: please do not share it.
+    </p>
+</div>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- numbercall is intentionally absent: removed in Odoo 18, and set to -1
+         for Odoo 17 by the post_init_hook (see hooks.py). -->
+    <record id="ir_cron_filecheck_sync" model="ir.cron">
+        <field name="name">Filecheck: sync orders and save print files</field>
+        <field name="model_id" ref="model_filecheck_sync"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_run()</field>
+        <field name="interval_number">5</field>
+        <field name="interval_type">minutes</field>
+        <field name="active" eval="True"/>
+    </record>
+</odoo>

@@ -1,0 +1,14 @@
+.o_filecheck_slot {
+    width: 100%;
+    margin: 0 0 1rem;
+}
+
+/* Odoo's purchase buttons are <a> elements: show them disabled while the
+   Filecheck element gates them (or while the job is being saved). */
+#add_to_cart.filecheck-gated,
+.o_we_buy_now.filecheck-gated,
+#add_to_cart.o_filecheck_saving,
+.o_we_buy_now.o_filecheck_saving {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

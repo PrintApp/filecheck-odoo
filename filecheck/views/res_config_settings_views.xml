@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_filecheck" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.filecheck</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="website_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='website_shop_checkout']" position="after">
+                <block title="Filecheck" id="filecheck_settings">
+                    <setting id="filecheck_keys_setting" string="API Keys"
+                             help="From the Filecheck dashboard (Developers). The secret key never reaches the storefront.">
+                        <div class="content-group">
+                            <div class="row mt-2">
+                                <label for="filecheck_publishable_key" string="Publishable Key" class="col-lg-4 o_light_label"/>
+                                <field name="filecheck_publishable_key" placeholder="pk_..."/>
+                            </div>
+                            <div class="row">
+                                <label for="filecheck_secret_key" string="Secret Key" class="col-lg-4 o_light_label"/>
+                                <field name="filecheck_secret_key" password="True" placeholder="sk_..."/>
+                            </div>
+                            <div class="row">
+                                <label for="filecheck_agent_id" string="Agent ID" class="col-lg-4 o_light_label"/>
+                                <field name="filecheck_agent_id" placeholder="optional, agt_..."/>
+                            </div>
+                            <div class="mt-2">
+                                <button name="action_filecheck_sync" type="object" class="btn-link" icon="oi-arrow-right"
+                                        string="Test connection and sync workflows"/>
+                            </div>
+                        </div>
+                    </setting>
+                    <setting id="filecheck_workflow_setting" string="Default Workflow"
+                             help="Used by products set to the website's default workflow. Workflows are managed in the Filecheck dashboard.">
+                        <field name="filecheck_default_workflow_id"
+                               domain="[('website_id', '=', website_id), ('kind', '=', 'workflow')]"
+                               options="{'no_create': True, 'no_open': True}"/>
+                    </setting>
+                    <setting id="filecheck_timing_setting" string="Collect Artwork"
+                             help="When customers provide their file. Products can override it.">
+                        <field name="filecheck_artwork_timing"/>
+                    </setting>
+                    <setting id="filecheck_presentation_setting" string="Upload Widget"
+                             help="How the upload appears on the product page. Products can override it.">
+                        <field name="filecheck_presentation"/>
+                    </setting>
+                    <setting id="filecheck_upload_email_setting" string="Email the Upload Link"
+                             help="When an order waits for artwork, email the customer the link to upload it.">
+                        <field name="filecheck_upload_email"/>
+                    </setting>
+                    <setting id="filecheck_save_files_setting" string="Save Print Files on Orders"
+                             help="Attach each checked (and fixed) file to its sale order, so it stays available after Filecheck's download links expire.">
+                        <field name="filecheck_save_files"/>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

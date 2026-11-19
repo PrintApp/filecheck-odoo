@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Anchor: //div[@id='o_wsale_cta_wrapper'] (quantity + Add to Cart) is
+         identical in the shipped 17.0 and 18.0 website_sale.product templates. -->
+    <template id="filecheck_product_inject" inherit_id="website_sale.product"
+              name="Filecheck Upload Widget">
+        <xpath expr="//div[@id='o_wsale_cta_wrapper']" position="before">
+            <t t-set="fc" t-value="website.sudo()._filecheck_product_params(product)"/>
+            <t t-if="fc">
+                <div t-att-id="'fc-slot-%s' % product.id" class="o_filecheck_slot"/>
+                <link rel="stylesheet" href="/filecheck/static/src/css/filecheck_product.css"/>
+                <script id="filecheck-params" type="application/json" t-out="fc['json']"/>
+                <script t-att-src="fc['cdn_url']" async="async"/>
+                <script src="/filecheck/static/src/js/filecheck_product.js" defer="defer"/>
+            </t>
+        </xpath>
+    </template>
+</odoo>

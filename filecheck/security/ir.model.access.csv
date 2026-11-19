@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_filecheck_resource_user,filecheck.resource.user,model_filecheck_resource,base.group_user,1,0,0,0
+access_filecheck_resource_system,filecheck.resource.system,model_filecheck_resource,base.group_system,1,1,1,1
+access_filecheck_sync_system,filecheck.sync.system,model_filecheck_sync,base.group_system,1,1,1,1

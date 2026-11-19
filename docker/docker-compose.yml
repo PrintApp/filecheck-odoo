@@ -1,0 +1,59 @@
+# Local verification harness, not shipped with the addon.
+#   docker compose up odoo17        ->  http://localhost:8071
+#   docker compose up odoo18        ->  http://localhost:8072
+# First boot: create a database with demo data, then install "filecheck"
+# (Apps -> Update Apps List -> Filecheck Print File Preflight).
+#
+# Tests (no browser needed):
+#   docker compose run --rm odoo18 odoo -d fc_test -i filecheck --test-tags /filecheck \
+#     --stop-after-init --without-demo=False
+services:
+  db17:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+      POSTGRES_DB: postgres
+    volumes:
+      - db17-data:/var/lib/postgresql/data
+
+  odoo17:
+    image: odoo:17.0
+    depends_on: [db17]
+    ports: ["8071:8069"]
+    environment:
+      HOST: db17
+      USER: odoo
+      PASSWORD: odoo
+    command: odoo --dev=xml
+    volumes:
+      - ../filecheck:/mnt/extra-addons/filecheck
+      - odoo17-data:/var/lib/odoo
+
+  db18:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+      POSTGRES_DB: postgres
+    volumes:
+      - db18-data:/var/lib/postgresql/data
+
+  odoo18:
+    image: odoo:18.0
+    depends_on: [db18]
+    ports: ["8072:8069"]
+    environment:
+      HOST: db18
+      USER: odoo
+      PASSWORD: odoo
+    command: odoo --dev=xml
+    volumes:
+      - ../filecheck:/mnt/extra-addons/filecheck
+      - odoo18-data:/var/lib/odoo
+
+volumes:
+  db17-data:
+  odoo17-data:
+  db18-data:
+  odoo18-data:

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Artwork after checkout: the upload link, shown while lines of the
+         order still wait for their file. -->
+    <template id="filecheck_upload_notice" name="Filecheck Upload Notice">
+        <div t-if="fc_upload_url" class="alert alert-info d-flex flex-wrap align-items-center gap-3 o_filecheck_upload">
+            <span class="flex-grow-1">
+                Some items on this order still need your artwork. Upload your
+                files any time, and we will check them before we print.
+            </span>
+            <a t-att-href="fc_upload_url" class="btn btn-primary" target="_blank" rel="noopener">Upload artwork</a>
+        </div>
+    </template>
+
+    <!-- Shop confirmation page. Anchor shared by 17.0 and 18.0. -->
+    <template id="filecheck_confirmation_upload" inherit_id="website_sale.confirmation"
+              name="Filecheck Confirmation Upload Link">
+        <xpath expr="//t[@t-set='tx_sudo']" position="after">
+            <t t-set="fc_upload_url" t-value="order._filecheck_upload_link_for_display()"/>
+            <t t-call="filecheck.filecheck_upload_notice"/>
+        </xpath>
+    </template>
+
+    <!-- Portal order page (linked from the standard order emails). -->
+    <template id="filecheck_portal_order_upload" inherit_id="sale.sale_order_portal_content"
+              name="Filecheck Portal Upload Link">
+        <xpath expr="//section[@id='details']" position="before">
+            <t t-set="fc_upload_url" t-value="sale_order._filecheck_upload_link_for_display()"/>
+            <t t-call="filecheck.filecheck_upload_notice"/>
+        </xpath>
+    </template>
+</odoo>

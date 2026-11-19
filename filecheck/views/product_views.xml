@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_template_form_view_filecheck" model="ir.ui.view">
+        <field name="name">product.template.form.filecheck</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Filecheck" name="filecheck">
+                    <group>
+                        <group string="Print file">
+                            <field name="filecheck_mode" widget="radio"/>
+                            <field name="filecheck_workflow_id" string="Workflow"
+                                   invisible="filecheck_mode != 'custom'"
+                                   required="filecheck_mode == 'custom'"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                            <field name="filecheck_artwork_timing" invisible="filecheck_mode == 'off'"
+                                   placeholder="Website setting"/>
+                        </group>
+                        <group string="Product page" invisible="filecheck_mode == 'off'">
+                            <field name="filecheck_presentation" string="Upload widget" placeholder="Website setting"/>
+                            <field name="filecheck_connector_id" string="Connector"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+                    </group>
+                    <div class="text-muted" invisible="filecheck_mode == 'off'">
+                        Workflows and connectors are created in the Filecheck dashboard.
+                        Missing one? Use <em>Test connection and sync workflows</em> in
+                        Website › Configuration › Settings › Filecheck.
+                    </div>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
