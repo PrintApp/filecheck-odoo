@@ -114,9 +114,9 @@ manifest's `images`), `icon.png` and the screenshots next to it. The store's HTM
 cleaner strips backgrounds and neutralizes external links, so keep URLs as plain
 text and the copy plain ASCII.
 
-`store/` (not shipped) regenerates the banner and screenshots: `banner.html`, a
-mock Filecheck API (`mock_api.py`), demo data (`seed_screenshots.py`) and a Playwright
-script (`shoot.py`, uses the installed Chrome). The settings screenshot swaps in a
+`banner.png` is a supplied design (1600x900). `store/` (not shipped) regenerates
+the screenshots: a mock Filecheck API (`mock_api.py`), demo data
+(`seed_screenshots.py`) and a Playwright script (`shoot.py`, uses the installed Chrome). The settings screenshot swaps in a
 dummy publishable key, so no real key appears in the listing.
 
 ## Notes and limitations

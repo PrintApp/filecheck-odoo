@@ -1,9 +1,9 @@
-"""Apps Store screenshots and banner (not shipped).
+"""Apps Store screenshots (not shipped). The cover, banner.png, is a supplied design.
 
 Needs the demo store from seed_screenshots.py on :8072, store/mock_api.py, and
 `pip install playwright pillow` (uses the installed Chrome, no browser download).
 
-    python shoot.py [banner|product|order|portal|tab|settings ...]
+    python shoot.py [product|order|portal|tab|settings ...]
 """
 import sys
 from pathlib import Path
@@ -39,13 +39,6 @@ def shoot(names):
         browser = p.chromium.launch(channel='chrome')
         ctx = browser.new_context(viewport=VIEW, device_scale_factor=1)
         page = ctx.new_page()
-
-        if 'banner' in names:
-            page.set_viewport_size({'width': 1600, 'height': 900})
-            page.goto((HERE / 'banner.html').as_uri())
-            page.wait_for_timeout(800)
-            page.screenshot(path=OUT / 'banner.png')
-            page.set_viewport_size(VIEW)
 
         if 'product' in names:
             page.goto(f'{ODOO}{PRODUCT_URL}')
@@ -91,4 +84,4 @@ def shoot(names):
 
 
 if __name__ == '__main__':
-    shoot(sys.argv[1:] or ['banner', 'product', 'portal', 'order', 'tab', 'settings'])
+    shoot(sys.argv[1:] or ['product', 'portal', 'order', 'tab', 'settings'])
