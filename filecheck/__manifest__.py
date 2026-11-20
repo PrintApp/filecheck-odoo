@@ -16,6 +16,7 @@ artwork after checkout through a signed upload link.
     'website': 'https://filecheck.io',
     'support': 'support@filecheck.io',
     'license': 'LGPL-3',
+    'images': ['static/description/banner.png'],
     'depends': ['website_sale'],
     'external_dependencies': {'python': ['requests']},
     'data': [

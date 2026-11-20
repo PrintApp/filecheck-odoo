@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- Apps Store cover (1600x900), rendered by shoot.py banner. Style follows the
+     WordPress.org banner; img/wordmark.png is cropped from it. -->
+<html>
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+    * { box-sizing: border-box; margin: 0; }
+    body { width: 1600px; height: 900px; overflow: hidden; background: #bfff00; font-family: Outfit, system-ui, sans-serif; color: #0b0b0b; position: relative; }
+    .wave { position: absolute; left: -10%; right: -10%; bottom: -140px; height: 260px; background: #b4f200; border-radius: 50%; }
+    .left { position: absolute; left: 110px; top: 150px; width: 640px; }
+    .kicker { font-family: 'JetBrains Mono', monospace; font-weight: 700; letter-spacing: 6px; font-size: 26px; display: flex; align-items: center; gap: 18px; }
+    .kicker i { display: inline-block; width: 12px; height: 30px; background: #ff1f1f; transform: skewX(-10deg); }
+    .wordmark { display: block; width: 560px; margin: 56px 0 48px -10px; }
+    h1 { font-size: 52px; line-height: 1.18; font-weight: 600; }
+    h1 b { font-weight: 800; }
+    .pills { display: flex; gap: 14px; margin-top: 40px; }
+    .pill { font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700; border: 3px solid #0b0b0b; border-radius: 999px; padding: 10px 22px; }
+    .card { position: absolute; right: 100px; top: 165px; width: 680px; background: #fff; border-radius: 28px; padding: 30px; box-shadow: 0 30px 60px rgba(60, 90, 0, 0.25); }
+    .label { font-family: 'JetBrains Mono', monospace; font-size: 17px; letter-spacing: 3px; color: #445; margin: 0 0 16px 4px; display: flex; gap: 12px; align-items: center; }
+    .label i { width: 7px; height: 20px; background: #ff1f1f; display: inline-block; }
+    .row { display: flex; align-items: center; gap: 18px; border: 1.5px solid #e4e8ec; border-radius: 16px; padding: 18px 20px; margin-bottom: 14px; }
+    .row.warn { background: #fff5f2; border-color: #fbe0d8; }
+    .icon { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; font-size: 24px; font-weight: 800; }
+    .ok .icon { background: #e7f8ec; color: #11833a; }
+    .warn .icon { background: #ffe9e0; color: #d4570e; }
+    .name { font-weight: 700; font-size: 24px; }
+    .meta { font-family: 'JetBrains Mono', monospace; font-size: 16px; color: #667; margin-top: 4px; }
+    .ok .meta b { color: #11833a; font-weight: 500; }
+    .warn .meta b { color: #d4570e; font-weight: 500; }
+    .proof { margin-left: auto; border: 1.5px solid #cfd6dc; border-radius: 999px; padding: 8px 18px; font-weight: 600; font-size: 17px; }
+    .foot { display: flex; align-items: center; gap: 22px; margin-top: 22px; }
+    .cart { background: #714b67; color: #fff; font-weight: 700; font-size: 24px; border-radius: 12px; padding: 18px 34px; }
+    .passed { color: #11833a; font-weight: 700; font-size: 19px; display: flex; gap: 10px; align-items: center; }
+    .passed span { width: 26px; height: 26px; border-radius: 50%; background: #11833a; color: #fff; display: grid; place-items: center; font-size: 15px; }
+    .order { position: absolute; right: 170px; top: 655px; width: 540px; background: #0b0b0b; color: #fff; border-radius: 22px; padding: 22px 26px; box-shadow: 0 24px 50px rgba(0, 0, 0, 0.25); }
+    .order .t { font-family: 'JetBrains Mono', monospace; font-size: 15px; color: #bfff00; letter-spacing: 2px; }
+    .order .d { font-size: 22px; font-weight: 600; margin-top: 8px; }
+</style>
+</head>
+<body>
+    <div class="wave"></div>
+    <div class="left">
+        <div class="kicker"><i></i>PREFLIGHT FOR ODOO</div>
+        <img class="wordmark" src="img/wordmark.png" alt="Filecheck">
+        <h1>Customers upload <b>print-ready files</b> before they check out.</h1>
+        <div class="pills"><span class="pill">Odoo 17</span><span class="pill">Odoo 18</span><span class="pill">eCommerce</span></div>
+    </div>
+
+    <div class="card">
+        <div class="label"><i></i>ARTWORK CHECK &middot; POWERED BY FILECHECK</div>
+        <div class="row ok">
+            <div class="icon">&#10003;</div>
+            <div><div class="name">bizcard-front.pdf</div><div class="meta">2.1 MB &middot; <b>Valid file</b></div></div>
+            <div class="proof">View proof</div>
+        </div>
+        <div class="row warn">
+            <div class="icon">!</div>
+            <div><div class="name">bizcard-back.pdf</div><div class="meta">1.8 MB &middot; <b>RGB to CMYK &middot; Auto-fixed</b></div></div>
+            <div class="proof">View proof</div>
+        </div>
+        <div class="foot">
+            <div class="cart">Add to cart</div>
+            <div class="passed"><span>&#10003;</span>Preflight passed</div>
+        </div>
+    </div>
+
+    <div class="order">
+        <div class="t">SALE ORDER S00071</div>
+        <div class="d">Print-ready files saved on the order</div>
+    </div>
+</body>
+</html>

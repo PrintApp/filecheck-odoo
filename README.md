@@ -96,6 +96,29 @@ From Git Bash, set `MSYS_NO_PATHCONV=1` first, or `/filecheck` is rewritten into
 Windows path. For a staging API, set the System Parameter `filecheck.api_url`.
 `docker/seed_demo.py` configures a demo database with placeholder keys.
 
+## Odoo Apps Store
+
+The store reads one branch per Odoo version: **`17.0`** and **`18.0`** carry the
+same code as `main`. After a change lands on `main`, fast-forward both branches and
+push them; the store picks the update up from there:
+
+```bash
+git push origin main:17.0 main:18.0
+```
+
+Register each branch once at apps.odoo.com (*Upload*), for example
+`https://github.com/PrintApp/filecheck-odoo.git#18.0`.
+
+The listing is `filecheck/static/description/index.html`, plus `banner.png` (the
+manifest's `images`), `icon.png` and the screenshots next to it. The store's HTML
+cleaner strips backgrounds and neutralizes external links, so keep URLs as plain
+text and the copy plain ASCII.
+
+`store/` (not shipped) regenerates the banner and screenshots: `banner.html`, a
+mock Filecheck API (`mock_api.py`), demo data (`seed_screenshots.py`) and a Playwright
+script (`shoot.py`, uses the installed Chrome). The settings screenshot swaps in a
+dummy publishable key, so no real key appears in the listing.
+
 ## Notes and limitations
 
 - Odoo Online (SaaS) can't install third-party modules. Self-hosted and Odoo.sh can.

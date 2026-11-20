@@ -1,0 +1,91 @@
+<section style="max-width: 880px; margin: 0 auto; padding: 24px 16px; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; color: #1c2530;">
+
+    <!-- Apps Store sanitizer: background styles are stripped and external
+         links are neutralized, so URLs are spelled out and colour comes from
+         borders and text only. Keep the text plain ASCII. -->
+    <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 8px;">
+        <img src="icon.png" alt="Filecheck" style="width: 72px; height: 72px; border-radius: 14px;"/>
+        <div>
+            <h1 style="margin: 0 0 4px; font-size: 28px;">Filecheck Print File Preflight</h1>
+            <p style="margin: 0; color: #5c6b78; font-size: 16px;">
+                Customers upload print-ready files before they check out.
+            </p>
+        </div>
+    </div>
+
+    <img src="banner.png" alt="Filecheck checks customer print files on Odoo eCommerce"
+         style="width: 100%; border-radius: 10px; margin: 16px 0;"/>
+
+    <p style="font-size: 15px; line-height: 1.6;">
+        <strong>Filecheck</strong> (<strong>filecheck.io</strong>) checks the artwork your
+        customers upload: size and bleed, resolution, colour space, fonts, page count and
+        more, each product with its own rules. It fixes what it can on its own (adds bleed,
+        converts RGB to CMYK, resizes near-miss files) and shows the customer a proof. This
+        module puts it on your Odoo product pages, so every order arrives with files you
+        can print, and the files land on the sale order.
+    </p>
+
+    <h2 style="font-size: 20px; border-bottom: 2px solid #e6ebee; padding-bottom: 6px;">What you get</h2>
+    <ul style="font-size: 15px; line-height: 1.9;">
+        <li><strong>Upload and preflight on the product page:</strong> the Filecheck upload box
+            sits above Add to Cart, which unlocks once the files pass (or were fixed).</li>
+        <li><strong>One file per cart line:</strong> the checked file follows its line onto the
+            sale order, and its name shows in the line description.</li>
+        <li><strong>Print files saved on the order:</strong> each checked (and fixed) file is
+            attached to the sale order, with a note in the chatter.</li>
+        <li><strong>Filecheck tab on orders:</strong> outcome per file, proofs, download links,
+            and a link to the job in your Filecheck dashboard.</li>
+        <li><strong>Artwork after checkout:</strong> sell products first and collect the file
+            later. The customer gets an upload link by email, on the order confirmation page
+            and in their portal; files uploaded there land on the order lines.</li>
+        <li><strong>Never blocks a sale:</strong> if the check cannot run, the customer still
+            orders and receives the upload link, so no line ships without a file.</li>
+        <li><strong>Per-product setup:</strong> a Filecheck tab on each product picks its
+            workflow, when the file is collected, the widget style and an optional connector
+            that fills quantity or size from the file.</li>
+        <li><strong>Multi-website ready:</strong> keys and defaults are set per website.</li>
+    </ul>
+
+    <h2 style="font-size: 20px; border-bottom: 2px solid #e6ebee; padding-bottom: 6px;">Screenshots</h2>
+    <p style="font-size: 15px; margin-bottom: 6px;"><strong>The upload box on a product page</strong></p>
+    <img src="screenshot_product_page.png" alt="Product page with the Filecheck upload box"
+         style="width: 100%; border: 1px solid #e6ebee; border-radius: 8px; margin-bottom: 20px;"/>
+    <p style="font-size: 15px; margin-bottom: 6px;"><strong>Files, proofs and outcomes on the sale order</strong></p>
+    <img src="screenshot_order.png" alt="Filecheck tab on a sale order"
+         style="width: 100%; border: 1px solid #e6ebee; border-radius: 8px; margin-bottom: 20px;"/>
+    <p style="font-size: 15px; margin-bottom: 6px;"><strong>Artwork after checkout: the upload link in the customer portal</strong></p>
+    <img src="screenshot_upload_link.png" alt="Upload artwork link on the customer's order page"
+         style="width: 100%; border: 1px solid #e6ebee; border-radius: 8px; margin-bottom: 20px;"/>
+    <p style="font-size: 15px; margin-bottom: 6px;"><strong>Per-product settings</strong></p>
+    <img src="screenshot_product_tab.png" alt="Filecheck tab on a product"
+         style="width: 100%; border: 1px solid #e6ebee; border-radius: 8px; margin-bottom: 20px;"/>
+    <p style="font-size: 15px; margin-bottom: 6px;"><strong>Website settings</strong></p>
+    <img src="screenshot_settings.png" alt="Filecheck block in the website settings"
+         style="width: 100%; border: 1px solid #e6ebee; border-radius: 8px; margin-bottom: 20px;"/>
+
+    <h2 style="font-size: 20px; border-bottom: 2px solid #e6ebee; padding-bottom: 6px;">Setup in three steps</h2>
+    <ol style="font-size: 15px; line-height: 1.9;">
+        <li>Create an account at <strong>filecheck.io</strong>, set up a workflow for your
+            product (or pick a ready-made one), and copy your publishable and secret keys.</li>
+        <li>Paste them under <em>Website &gt; Configuration &gt; Settings &gt; Filecheck</em>,
+            click <em>Test connection and sync workflows</em> and choose a default workflow.</li>
+        <li>Open a product, go to the <em>Filecheck</em> tab and switch it on. Done.</li>
+    </ol>
+
+    <h2 style="font-size: 20px; border-bottom: 2px solid #e6ebee; padding-bottom: 6px;">Good to know</h2>
+    <ul style="font-size: 15px; line-height: 1.9;">
+        <li>Works on Odoo <strong>17 and 18</strong>, self-hosted and Odoo.sh. (Third-party
+            modules cannot be installed on Odoo Online.)</li>
+        <li>The module is a thin connector. Checking, fixing and proofs run on Filecheck's
+            servers; the secret key stays on your server and never reaches the storefront.</li>
+        <li>A Filecheck account is required; see <strong>filecheck.io</strong> for plans.</li>
+        <li>Also uses Print.App? Lines designed in the Print.App module are listed on the same
+            Filecheck order page.</li>
+    </ul>
+
+    <p style="text-align:center; color:#5c6b78; font-size: 14px; margin-top: 28px;">
+        Website: <strong>https://filecheck.io</strong> &middot;
+        Questions? <a href="mailto:support@filecheck.io">support@filecheck.io</a><br/>
+        Source: <strong>https://github.com/PrintApp/filecheck-odoo</strong>
+    </p>
+</section>

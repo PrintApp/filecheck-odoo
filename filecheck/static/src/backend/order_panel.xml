@@ -10,8 +10,7 @@
                 <t t-set="data" t-value="state.data"/>
                 <div t-if="data.error" class="alert alert-warning" t-esc="data.error"/>
                 <div t-if="data.uploadUrl and data.uploadStatus !== 'complete'" class="alert alert-info">
-                    Some lines are waiting for the customer's artwork
-                    (<t t-esc="data.uploadStatus"/>).
+                    Some lines are waiting for the customer's artwork.
                     <a t-att-href="data.uploadUrl" target="_blank" rel="noopener">Open the upload page</a>
                 </div>
                 <div t-foreach="data.lines" t-as="line" t-key="line.id" class="border-bottom py-2">
